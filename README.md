@@ -25,13 +25,13 @@ To use `gobuild`, you can simply replace `go build` with `gobuild` and specify a
 
 ### Examples
 
-**Build for Linux on amd64:**
+**Build for Linux**
 
 ```bash
-gobuild -t linux -arch amd64
+gobuild -t linux
 ```
 
-**Build for Windows on arm64:**
+**Build for Windows arm64:**
 
 ```bash
 gobuild -t windows -arch arm64
