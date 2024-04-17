@@ -22,7 +22,7 @@ func main() {
 		case "-arch":
 			arch = &os.Args[i+1]
 			find = true
-		case "-h", "-help":
+		case "-h", "-help", "--help":
 			fmt.Println("Usage: gobuild [options] [arguments], equivalent to go build [arguments]")
 			fmt.Println("Options:")
 			fmt.Println("  -t, -target")
