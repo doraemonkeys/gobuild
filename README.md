@@ -10,7 +10,7 @@
 ## Installation
 
 ```shell
-go install github.com/doraemonkeys/gobuild
+go install github.com/doraemonkeys/gobuild@latest
 ```
 
 ## Usage
