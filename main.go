@@ -40,12 +40,14 @@ func main() {
 	}
 
 	cmd := exec.Command("go", append([]string{"build"}, os.Args[1:]...)...)
+	env := os.Environ()
 	if target != nil {
-		cmd.Env = append(os.Environ(), fmt.Sprintf("GOOS=%s", *target))
+		env = append(env, fmt.Sprintf("GOOS=%s", *target))
 	}
 	if arch != nil {
-		cmd.Env = append(os.Environ(), fmt.Sprintf("GOARCH=%s", *arch))
+		env = append(env, fmt.Sprintf("GOARCH=%s", *arch))
 	}
+	cmd.Env = env
 
 	output, err := cmd.CombinedOutput()
 	if err != nil {
