@@ -17,10 +17,12 @@ func main() {
 		find := false
 		switch os.Args[i] {
 		case "-t", "-target":
-			target = &os.Args[i+1]
+			value := os.Args[i+1]
+			target = &value
 			find = true
 		case "-arch":
-			arch = &os.Args[i+1]
+			value := os.Args[i+1]
+			arch = &value
 			find = true
 		case "-h", "-help", "--help":
 			fmt.Println("Usage: gobuild [options] [arguments], equivalent to go build [arguments]")
