@@ -41,16 +41,23 @@ func main() {
 		}
 	}
 
-	cmd := exec.Command("go", append([]string{"build"}, os.Args[1:]...)...)
-	env := os.Environ()
 	if target != nil {
-		env = append(env, fmt.Sprintf("GOOS=%s", *target))
+		err := os.Setenv("GOOS", *target)
+		if err != nil {
+			fmt.Println(err)
+			os.Exit(1)
+		}
 	}
 	if arch != nil {
-		env = append(env, fmt.Sprintf("GOARCH=%s", *arch))
+		err := os.Setenv("GOARCH", *arch)
+		if err != nil {
+			fmt.Println(err)
+			os.Exit(1)
+		}
 	}
-	cmd.Env = env
 
+	cmd := exec.Command("go", append([]string{"build"}, os.Args[1:]...)...)
+	cmd.Env = os.Environ()
 	output, err := cmd.CombinedOutput()
 	if err != nil {
 		os.Stderr.WriteString(fmt.Sprintf("Error executing go build: %s\n", err))
