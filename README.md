@@ -2,10 +2,6 @@
 
 `gobuild` is a custom command-line utility designed to extend the functionality of the standard `go build` command by allowing users to specify target operating systems and architectures directly through command-line options. This tool simplifies cross-compilation processes for Go applications and integrates seamlessly with existing Go toolchain environments.
 
-## Features
-
-- **Set Target OS**: Specify the target operating system for the build process, facilitating easy cross-compilation.
-- **Set Target Architecture**: Define the target architecture, supporting diverse hardware platforms.
 
 ## Installation
 
